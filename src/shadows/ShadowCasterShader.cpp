@@ -36,7 +36,7 @@
 #include <Magnum/Version.h>
 #include <Magnum/Math/Matrix4.h>
 
-using namespace Magnum;
+namespace Magnum { namespace Examples {
 
 ShadowCasterShader::ShadowCasterShader() {
     MAGNUM_ASSERT_VERSION_SUPPORTED(Version::GL330);
@@ -58,11 +58,9 @@ ShadowCasterShader::ShadowCasterShader() {
     transformationMatrixUniform = uniformLocation("transformationMatrix");
 }
 
-ShadowCasterShader::~ShadowCasterShader() {
-
-}
-
-ShadowCasterShader &ShadowCasterShader::setTransformationMatrix(const Magnum::Matrix4 &matrix) {
+ShadowCasterShader& ShadowCasterShader::setTransformationMatrix(const Matrix4& matrix) {
     setUniform(transformationMatrixUniform, matrix);
     return *this;
 }
+
+}}
